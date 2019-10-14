@@ -16,6 +16,8 @@
 		5928E4CC2354C66400821BE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5928E4CA2354C66400821BE6 /* LaunchScreen.storyboard */; };
 		5928E4D72354C66400821BE6 /* LuncheonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5928E4D62354C66400821BE6 /* LuncheonTests.swift */; };
 		5928E4E22354C66400821BE6 /* LuncheonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5928E4E12354C66400821BE6 /* LuncheonUITests.swift */; };
+		5928E4F82354CE3C00821BE6 /* BYekan+.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5928E4F32354CE3C00821BE6 /* BYekan+.ttf */; };
+		5928E4F92354CE3C00821BE6 /* BYekan+ Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5928E4F42354CE3C00821BE6 /* BYekan+ Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		5928E4DD2354C66400821BE6 /* LuncheonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LuncheonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5928E4E12354C66400821BE6 /* LuncheonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuncheonUITests.swift; sourceTree = "<group>"; };
 		5928E4E32354C66400821BE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5928E4F32354CE3C00821BE6 /* BYekan+.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BYekan+.ttf"; sourceTree = "<group>"; };
+		5928E4F42354CE3C00821BE6 /* BYekan+ Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BYekan+ Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,7 @@
 		5928E4BB2354C66300821BE6 /* Luncheon */ = {
 			isa = PBXGroup;
 			children = (
+				5928E4EF2354CDBF00821BE6 /* supporting files */,
 				5928E4BC2354C66300821BE6 /* AppDelegate.swift */,
 				5928E4BE2354C66300821BE6 /* SceneDelegate.swift */,
 				5928E4C02354C66300821BE6 /* ViewController.swift */,
@@ -129,6 +134,31 @@
 				5928E4E32354C66400821BE6 /* Info.plist */,
 			);
 			path = LuncheonUITests;
+			sourceTree = "<group>";
+		};
+		5928E4EF2354CDBF00821BE6 /* supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				5928E4F02354CDE600821BE6 /* fonts */,
+			);
+			path = "supporting files";
+			sourceTree = "<group>";
+		};
+		5928E4F02354CDE600821BE6 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5928E4F12354CE3C00821BE6 /* BYekan */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		5928E4F12354CE3C00821BE6 /* BYekan */ = {
+			isa = PBXGroup;
+			children = (
+				5928E4F32354CE3C00821BE6 /* BYekan+.ttf */,
+				5928E4F42354CE3C00821BE6 /* BYekan+ Bold.ttf */,
+			);
+			path = BYekan;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +265,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5928E4F92354CE3C00821BE6 /* BYekan+ Bold.ttf in Resources */,
+				5928E4F82354CE3C00821BE6 /* BYekan+.ttf in Resources */,
 				5928E4CC2354C66400821BE6 /* LaunchScreen.storyboard in Resources */,
 				5928E4C92354C66400821BE6 /* Assets.xcassets in Resources */,
 				5928E4C42354C66300821BE6 /* Main.storyboard in Resources */,

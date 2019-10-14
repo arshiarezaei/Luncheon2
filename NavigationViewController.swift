@@ -1,5 +1,5 @@
 //
-//  MainTabBarViewController.swift
+//  NavigationViewController.swift
 //  Luncheon
 //
 //  Created by arshiya  on 7/22/1398 AP.
@@ -8,11 +8,14 @@
 
 import UIKit
 
-class MainTabBarViewController: UITabBarController {
+class NavigationViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBar.tintColor = .luncheonLogoTextColor
+        navigationBar.tintColor = .luncheonLogoTextColor
+        navigationBar.topItem?.titleView =  UIImageView(image: UIImage(named: "logo"))
+        navigationBar.topItem?.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "food tray"), style: .plain, target: nil, action: nil)
+
         // Do any additional setup after loading the view.
     }
     

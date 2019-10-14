@@ -39,7 +39,7 @@
             </objects>
             <point key="canvasLocation" x="1076" y="896"/>
         </scene>
-        <!--فودکورت-->
+        <!--View Controller-->
         <scene sceneID="vrv-0d-i9C">
             <objects>
                 <viewController id="lId-Km-ndO" sceneMemberID="viewController">
@@ -49,11 +49,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="dEk-ea-qjJ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="فودکورت" image="food court" id="I1n-aj-RmX"/>
+                    <navigationItem key="navigationItem" id="hrp-EL-OtR"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XEF-Lg-NIm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="1635"/>
+            <point key="canvasLocation" x="2015.2" y="1634.9325337331336"/>
         </scene>
         <!--Main Tab Bar View Controller-->
         <scene sceneID="O3p-UI-kmG">
@@ -67,12 +67,31 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="WBe-Qu-ikG"/>
                         <segue destination="ABW-54-UY6" kind="relationship" relationship="viewControllers" id="eGE-7Y-y2R"/>
-                        <segue destination="lId-Km-ndO" kind="relationship" relationship="viewControllers" id="y7J-p7-GKM"/>
+                        <segue destination="oSl-t1-Nce" kind="relationship" relationship="viewControllers" id="y7J-p7-GKM"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gks-2D-tMF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-722" y="1177"/>
+        </scene>
+        <!--فودکورت-->
+        <scene sceneID="2yX-vq-dup">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oSl-t1-Nce" customClass="NavigationViewController" customModule="Luncheon" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="فودکورت" image="food court" id="I1n-aj-RmX"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Oha-F5-a0D">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lId-Km-ndO" kind="relationship" relationship="rootViewController" id="OgP-6h-6nh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Cj-UF-TS0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="1634.9325337331336"/>
         </scene>
     </scenes>
     <resources>

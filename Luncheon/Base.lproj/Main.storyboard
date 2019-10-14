@@ -42,7 +42,7 @@
         <!--View Controller-->
         <scene sceneID="vrv-0d-i9C">
             <objects>
-                <viewController id="lId-Km-ndO" sceneMemberID="viewController">
+                <viewController id="lId-Km-ndO" customClass="FCViewController" customModule="Luncheon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hkg-jq-GCR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -18,12 +18,20 @@ class FCRestaurantsCollectionViewCell: UICollectionViewCell {
     
     private let unselecetedModeColor : UIColor = .lightGray
     
+    
     private let restaurantLogoImage:UIImageView = {
         let rli = UIImageView(frame: .zero)
         rli.translatesAutoresizingMaskIntoConstraints = false
         rli.image? = (rli.image?.withRenderingMode(.alwaysTemplate))!
         rli.tintColor = .luncheonLogoTextColor
-      //  rli.layer.cornerRadius = rli.frame.width/2
+        rli.contentMode = .scaleAspectFit
+        rli.layer.borderWidth = 2
+        rli.layer.borderColor = UIColor.black.cgColor
+        rli.layer.cornerRadius = rli.frame.width/2
+        rli.layer.masksToBounds = true
+        
+        
+        
         return rli
     }()
     
@@ -59,8 +67,11 @@ class FCRestaurantsCollectionViewCell: UICollectionViewCell {
         super.setNeedsDisplay()
         restaurantNameLabel.textColor = isSelected ? UIColor.luncheonLogoTextColor : self.unselecetedModeColor
         restaurantLogoImage.tintColor = isSelected ? UIColor.luncheonLogoTextColor : self.unselecetedModeColor
+        restaurantLogoImage.layer.borderColor = isSelected ? UIColor.luncheonLogoTextColor.cgColor : self.unselecetedModeColor.cgColor
         
     }
+    
+    
     
     func setupCell(restaurantName:String,restaurantLogo:UIImage=UIImage(named: "restaurant")!) {
           restaurantNameLabel.text = restaurantName
@@ -68,12 +79,17 @@ class FCRestaurantsCollectionViewCell: UICollectionViewCell {
       }
     
     private func setupRestaurantLogoImage()  {
+        let logoWidth = min(self.frame.width, self.frame.height * 0.7)
         NSLayoutConstraint.activate([
             restaurantLogoImage.topAnchor.constraint(equalTo: self.topAnchor,constant: 8),
-            restaurantLogoImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            restaurantLogoImage.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            restaurantLogoImage.heightAnchor.constraint(equalTo: self.widthAnchor),
+            restaurantLogoImage.safeAreaLayoutGuide.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            restaurantLogoImage.safeAreaLayoutGuide.widthAnchor.constraint(equalToConstant: logoWidth),
+            restaurantLogoImage.safeAreaLayoutGuide.heightAnchor.constraint(equalToConstant: logoWidth)
         ])
+        restaurantLogoImage.layer.borderWidth = 2
+        restaurantLogoImage.layer.borderColor = unselecetedModeColor.cgColor
+        restaurantLogoImage.layer.cornerRadius = logoWidth/2
+        restaurantLogoImage.layer.masksToBounds = true
     }
     
     private func setupRestaurantNameLabel()  {

@@ -21,6 +21,7 @@ class FCViewController: UIViewController {
         fcrcv.delegate = fcrcv.self
         fcrcv.register(FCRestaurantsCollectionViewCell.self, forCellWithReuseIdentifier: "restaurants")
         fcrcv.showsHorizontalScrollIndicator = false
+        fcrcv.showsHorizontalScrollIndicator = false
         return fcrcv
 
     }()
@@ -33,6 +34,10 @@ class FCViewController: UIViewController {
         fcrmtcv.translatesAutoresizingMaskIntoConstraints = false
         fcrmtcv.semanticContentAttribute = .forceRightToLeft
         fcrmtcv.backgroundColor = .white
+        fcrmtcv.dataSource = fcrmtcv.self
+        fcrmtcv.delegate = fcrmtcv.self
+        fcrmtcv.register(FCRMenuTitleCollectionViewCell.self, forCellWithReuseIdentifier: "menuTitle")
+        fcrmtcv.showsHorizontalScrollIndicator = false
         
         return fcrmtcv
     }()

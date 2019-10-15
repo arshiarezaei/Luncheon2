@@ -11,15 +11,15 @@ import UIKit
 
 extension FCRMenuTitleCollectionView: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        assertionFailure("not Implemented")
-        <#code#>
+      //  assertionFailure("not Implemented")
+        return 10
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        assertionFailure("not Implemented")
-        <#code#>
+        //assertionFailure("not Implemented")
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "menuTitle", for: indexPath) as? FCRMenuTitleCollectionViewCell
+//        cell?.setTitle(menuTitle: )
+        
+        return cell!
     }
-
-
-
 }

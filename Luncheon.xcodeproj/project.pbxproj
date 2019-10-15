@@ -27,6 +27,11 @@
 		596EDFB52354E825006D5E9D /* FCRestaurantsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596EDFB42354E825006D5E9D /* FCRestaurantsCollectionViewCell.swift */; };
 		596EDFB72354E89D006D5E9D /* extension FCRestaurantsCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596EDFB62354E89D006D5E9D /* extension FCRestaurantsCollectionViewDelegate.swift */; };
 		596EDFB92354E8C1006D5E9D /* extension FCRestaurantsCollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596EDFB82354E8C1006D5E9D /* extension FCRestaurantsCollectionViewDelegateFlowLayout.swift */; };
+		598ED9F72355DFCC00FB8C85 /* FCRMenuTitleCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598ED9F62355DFCC00FB8C85 /* FCRMenuTitleCollectionView.swift */; };
+		598ED9F92355DFF600FB8C85 /* extention FCRMenuTitleCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598ED9F82355DFF600FB8C85 /* extention FCRMenuTitleCollectionViewDataSource.swift */; };
+		598ED9FC2355E07D00FB8C85 /* extention FCRMenuTitleCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598ED9FB2355E07D00FB8C85 /* extention FCRMenuTitleCollectionViewDelegate.swift */; };
+		598ED9FE2355E0BF00FB8C85 /* extention FCRMenuTitleCollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598ED9FD2355E0BF00FB8C85 /* extention FCRMenuTitleCollectionViewDelegateFlowLayout.swift */; };
+		598EDA002355E11600FB8C85 /* FCRMenuTitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598ED9FF2355E11600FB8C85 /* FCRMenuTitleCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +78,11 @@
 		596EDFB42354E825006D5E9D /* FCRestaurantsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCRestaurantsCollectionViewCell.swift; sourceTree = "<group>"; };
 		596EDFB62354E89D006D5E9D /* extension FCRestaurantsCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension FCRestaurantsCollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		596EDFB82354E8C1006D5E9D /* extension FCRestaurantsCollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension FCRestaurantsCollectionViewDelegateFlowLayout.swift"; sourceTree = "<group>"; };
+		598ED9F62355DFCC00FB8C85 /* FCRMenuTitleCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCRMenuTitleCollectionView.swift; sourceTree = "<group>"; };
+		598ED9F82355DFF600FB8C85 /* extention FCRMenuTitleCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extention FCRMenuTitleCollectionViewDataSource.swift"; sourceTree = "<group>"; };
+		598ED9FB2355E07D00FB8C85 /* extention FCRMenuTitleCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extention FCRMenuTitleCollectionViewDelegate.swift"; sourceTree = "<group>"; };
+		598ED9FD2355E0BF00FB8C85 /* extention FCRMenuTitleCollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extention FCRMenuTitleCollectionViewDelegateFlowLayout.swift"; sourceTree = "<group>"; };
+		598ED9FF2355E11600FB8C85 /* FCRMenuTitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCRMenuTitleCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +206,7 @@
 			children = (
 				5928E5072354DD5400821BE6 /* FCViewController.swift */,
 				596EDFB12354E345006D5E9D /* food court restaurants */,
+				598ED9F52355DE7200FB8C85 /* FCRMenuTitle */,
 			);
 			path = "food court";
 			sourceTree = "<group>";
@@ -210,6 +221,18 @@
 				596EDFB82354E8C1006D5E9D /* extension FCRestaurantsCollectionViewDelegateFlowLayout.swift */,
 			);
 			path = "food court restaurants";
+			sourceTree = "<group>";
+		};
+		598ED9F52355DE7200FB8C85 /* FCRMenuTitle */ = {
+			isa = PBXGroup;
+			children = (
+				598ED9F62355DFCC00FB8C85 /* FCRMenuTitleCollectionView.swift */,
+				598ED9F82355DFF600FB8C85 /* extention FCRMenuTitleCollectionViewDataSource.swift */,
+				598ED9FB2355E07D00FB8C85 /* extention FCRMenuTitleCollectionViewDelegate.swift */,
+				598ED9FD2355E0BF00FB8C85 /* extention FCRMenuTitleCollectionViewDelegateFlowLayout.swift */,
+				598ED9FF2355E11600FB8C85 /* FCRMenuTitleCollectionViewCell.swift */,
+			);
+			path = FCRMenuTitle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,19 +368,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				598ED9F72355DFCC00FB8C85 /* FCRMenuTitleCollectionView.swift in Sources */,
 				596EDFB52354E825006D5E9D /* FCRestaurantsCollectionViewCell.swift in Sources */,
+				598EDA002355E11600FB8C85 /* FCRMenuTitleCollectionViewCell.swift in Sources */,
 				5928E4FF2354D2B200821BE6 /* MainTabBarViewController.swift in Sources */,
 				596EDFB72354E89D006D5E9D /* extension FCRestaurantsCollectionViewDelegate.swift in Sources */,
 				596EDFB92354E8C1006D5E9D /* extension FCRestaurantsCollectionViewDelegateFlowLayout.swift in Sources */,
 				5928E5082354DD5400821BE6 /* FCViewController.swift in Sources */,
 				5928E4C12354C66300821BE6 /* ViewController.swift in Sources */,
+				598ED9FE2355E0BF00FB8C85 /* extention FCRMenuTitleCollectionViewDelegateFlowLayout.swift in Sources */,
 				5928E4C72354C66300821BE6 /* Luncheon.xcdatamodeld in Sources */,
+				598ED9F92355DFF600FB8C85 /* extention FCRMenuTitleCollectionViewDataSource.swift in Sources */,
 				5928E4BD2354C66300821BE6 /* AppDelegate.swift in Sources */,
 				596EDFB32354E3F6006D5E9D /* extention FCRestaurantsCollectionViewDataSource.swift in Sources */,
 				5928E4BF2354C66300821BE6 /* SceneDelegate.swift in Sources */,
 				5928E5042354D90600821BE6 /* NavigationViewController.swift in Sources */,
 				5928E5022354D2FF00821BE6 /* extention UIColor.swift in Sources */,
 				5928E50A2354DDB700821BE6 /* FCRestaurantsCollectionView.swift in Sources */,
+				598ED9FC2355E07D00FB8C85 /* extention FCRMenuTitleCollectionViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

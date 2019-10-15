@@ -10,7 +10,7 @@ import UIKit
 
 class FCViewController: UIViewController {
     
-    private let fCRestaurantCollectionView:UICollectionView = {
+    private let fCRestaurantCollectionView:UICollectionView! = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let fcrcv = FCRestaurantsCollectionView(frame: .zero, collectionViewLayout: layout)
@@ -26,19 +26,38 @@ class FCViewController: UIViewController {
     }()
     
     
+    let fCRMenuTitleCollectionView :FCRMenuTitleCollectionView! = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let fcrmtcv = FCRMenuTitleCollectionView(frame: .zero, collectionViewLayout: layout)
+        fcrmtcv.translatesAutoresizingMaskIntoConstraints = false
+        fcrmtcv.semanticContentAttribute = .forceRightToLeft
+        fcrmtcv.backgroundColor = .white
+        
+        return fcrmtcv
+    }()
     
    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupSelf()
         
         self.view.addSubview(fCRestaurantCollectionView)
         setupFCRestaurantCollectionView()
         
+        self.view.addSubview(fCRMenuTitleCollectionView)
+        setupFCRMenuTitleCollectionView()
+        
         // Do any additional setup after loading the view.
     }
     
+    
+    
+    func setupSelf()  {
+        self.view.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
+    }
     
     private func setupFCRestaurantCollectionView() {
         NSLayoutConstraint.activate([
@@ -46,6 +65,15 @@ class FCViewController: UIViewController {
             fCRestaurantCollectionView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
             fCRestaurantCollectionView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
             fCRestaurantCollectionView.heightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.22)
+        ])
+    }
+    
+    private func setupFCRMenuTitleCollectionView() {
+        NSLayoutConstraint.activate([
+            fCRMenuTitleCollectionView.topAnchor.constraint(equalTo: fCRestaurantCollectionView.bottomAnchor),
+            fCRMenuTitleCollectionView.leadingAnchor.constraint(equalTo: fCRestaurantCollectionView.leadingAnchor),
+            fCRMenuTitleCollectionView.trailingAnchor.constraint(equalTo: fCRestaurantCollectionView.trailingAnchor),
+            fCRMenuTitleCollectionView.heightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.1),
         ])
     }
 

@@ -14,12 +14,12 @@ extension FCRMenuTitleCollectionView: UICollectionViewDataSource{
         assertionFailure("not Implemented")
         <#code#>
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         assertionFailure("not Implemented")
         <#code#>
     }
-    
-    
-    
+
+
+
 }

@@ -13,6 +13,7 @@ class MainTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.tintColor = .luncheonLogoTextColor
+        self.selectedIndex = 2
         // Do any additional setup after loading the view.
     }
     

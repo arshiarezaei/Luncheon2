@@ -16,6 +16,15 @@ class FCRFoodCollectionViewCell: UICollectionViewCell {
         
         return fi
     }()
+    
+    private let foodRateView:RateView = {
+        let rv = RateView(frame: .zero)
+        rv.translatesAutoresizingMaskIntoConstraints = false
+        rv.alpha = 0.7
+        return rv
+        
+    }()
+    
     private let foodNameLabel:UILabel = {
         let fnl = UILabel(frame: .zero)
         fnl.translatesAutoresizingMaskIntoConstraints = false
@@ -61,6 +70,8 @@ class FCRFoodCollectionViewCell: UICollectionViewCell {
     }()
     
     
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -73,6 +84,9 @@ class FCRFoodCollectionViewCell: UICollectionViewCell {
         self.addSubview(foodImage)
         setupFoodImage()
         
+        self.addSubview(foodRateView)
+        setupFoodRateView()
+        
         self.addSubview(foodNameLabel)
         setupFoodNameLabel()
         
@@ -82,18 +96,17 @@ class FCRFoodCollectionViewCell: UICollectionViewCell {
         self.addSubview(foodPriceLabel)
         setupFoodPriceLabel()
         
-//        setupCell(foodName: "اسم غذا", foodDescription: "این غذا شامل توضیحات خاصی نمی باشد پس لططفا به فرشته مهربون مراجعه کنید", foodPrice: 20000, foodPriceAfterDiscount: nil)
         
         
+        setupCell(foodName: "اسم غذا", foodDescription: "این غذا شامل توضیحات خاصی نمی باشد", foodPrice: 20000, foodPriceAfterDiscount: nil, foodRate: 1)
         
-        
-    }
+}
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupCell(foodName:String , foodDescription:String,foodPrice:Int,foodPriceAfterDiscount:Int!,foodImage:UIImage=UIImage(named: "food")!) {
+    func setupCell(foodName:String , foodDescription:String,foodPrice:Int,foodPriceAfterDiscount:Int!,foodImage:UIImage=UIImage(named: "foodCell")!,foodRate:Double) {
         self.foodNameLabel.text = foodName
         self.foodPriceLabel.text = String(foodPrice) + "ت"
         self.foodDescriptionLabel.text = foodDescription
@@ -102,6 +115,16 @@ class FCRFoodCollectionViewCell: UICollectionViewCell {
         if let fpad = foodPriceAfterDiscount{
         self.foodPriceAfterDiscountLabel.text = String(fpad)
         }
+        foodRateView.setRateNumber(rate: foodRate)
+        
+    }
+    
+    private func setupFoodRateView() {
+        NSLayoutConstraint.activate([
+            foodRateView.safeAreaLayoutGuide.topAnchor.constraint(equalTo: foodImage.safeAreaLayoutGuide.topAnchor, constant: 8),
+            foodRateView.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo:self.safeAreaLayoutGuide.trailingAnchor, constant: -8),
+            foodRateView.safeAreaLayoutGuide.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.31)
+        ])
         
         
     }

@@ -23,6 +23,7 @@
 		5928E5042354D90600821BE6 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5928E5032354D90600821BE6 /* NavigationViewController.swift */; };
 		5928E5082354DD5400821BE6 /* FCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5928E5072354DD5400821BE6 /* FCViewController.swift */; };
 		5928E50A2354DDB700821BE6 /* FCRestaurantsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5928E5092354DDB700821BE6 /* FCRestaurantsCollectionView.swift */; };
+		59656C2C235749EF00EE9096 /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59656C2B235749EF00EE9096 /* RateView.swift */; };
 		596EDFB32354E3F6006D5E9D /* extention FCRestaurantsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596EDFB22354E3F6006D5E9D /* extention FCRestaurantsCollectionViewDataSource.swift */; };
 		596EDFB52354E825006D5E9D /* FCRestaurantsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596EDFB42354E825006D5E9D /* FCRestaurantsCollectionViewCell.swift */; };
 		596EDFB72354E89D006D5E9D /* extension FCRestaurantsCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596EDFB62354E89D006D5E9D /* extension FCRestaurantsCollectionViewDelegate.swift */; };
@@ -79,6 +80,7 @@
 		5928E5032354D90600821BE6 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		5928E5072354DD5400821BE6 /* FCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCViewController.swift; sourceTree = "<group>"; };
 		5928E5092354DDB700821BE6 /* FCRestaurantsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCRestaurantsCollectionView.swift; sourceTree = "<group>"; };
+		59656C2B235749EF00EE9096 /* RateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
 		596EDFB22354E3F6006D5E9D /* extention FCRestaurantsCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extention FCRestaurantsCollectionViewDataSource.swift"; sourceTree = "<group>"; };
 		596EDFB42354E825006D5E9D /* FCRestaurantsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCRestaurantsCollectionViewCell.swift; sourceTree = "<group>"; };
 		596EDFB62354E89D006D5E9D /* extension FCRestaurantsCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension FCRestaurantsCollectionViewDelegate.swift"; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 		5928E4BB2354C66300821BE6 /* Luncheon */ = {
 			isa = PBXGroup;
 			children = (
+				59656C2A235749BA00EE9096 /* reusable views */,
 				5928E5052354DC9D00821BE6 /* food court */,
 				5928E5002354D2E700821BE6 /* Extentions */,
 				5928E4EF2354CDBF00821BE6 /* supporting files */,
@@ -220,6 +223,14 @@
 				598EDA0123561AA400FB8C85 /* FCRFood */,
 			);
 			path = "food court";
+			sourceTree = "<group>";
+		};
+		59656C2A235749BA00EE9096 /* reusable views */ = {
+			isa = PBXGroup;
+			children = (
+				59656C2B235749EF00EE9096 /* RateView.swift */,
+			);
+			path = "reusable views";
 			sourceTree = "<group>";
 		};
 		596EDFB12354E345006D5E9D /* food court restaurants */ = {
@@ -399,6 +410,7 @@
 				596EDFB72354E89D006D5E9D /* extension FCRestaurantsCollectionViewDelegate.swift in Sources */,
 				596EDFB92354E8C1006D5E9D /* extension FCRestaurantsCollectionViewDelegateFlowLayout.swift in Sources */,
 				5928E5082354DD5400821BE6 /* FCViewController.swift in Sources */,
+				59656C2C235749EF00EE9096 /* RateView.swift in Sources */,
 				5928E4C12354C66300821BE6 /* ViewController.swift in Sources */,
 				598ED9FE2355E0BF00FB8C85 /* extention FCRMenuTitleCollectionViewDelegateFlowLayout.swift in Sources */,
 				5928E4C72354C66300821BE6 /* Luncheon.xcdatamodeld in Sources */,

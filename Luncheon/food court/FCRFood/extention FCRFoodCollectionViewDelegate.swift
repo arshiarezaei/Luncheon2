@@ -10,5 +10,12 @@ import Foundation
 import UIKit
 
 extension FCRFoodCollectionView:UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let AvailableWidth = (collectionView.frame.width - 3*16)/2
+        return CGSize(width: AvailableWidth, height: 200)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 16
+    }
     
 }

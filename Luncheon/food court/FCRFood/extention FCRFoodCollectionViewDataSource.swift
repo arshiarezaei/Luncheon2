@@ -11,14 +11,17 @@ import UIKit
 
 extension FCRFoodCollectionView:UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        assertionFailure("not implemented")
-        <#code#>
+//        assertionFailure("not implemented")
+        return  10
+        
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        assertionFailure("not implemented")
-        <#code#>
+//        assertionFailure("not implemented")
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "uncustomizableFood", for: indexPath) as? FCRFoodCollectionViewCell
+        
+        return cell!
     }
-    
-    
+
+
 }

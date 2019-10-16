@@ -27,7 +27,7 @@ class FCViewController: UIViewController {
     }()
     
     
-    let fCRMenuTitleCollectionView :FCRMenuTitleCollectionView! = {
+    private let fCRMenuTitleCollectionView :FCRMenuTitleCollectionView! = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let fcrmtcv = FCRMenuTitleCollectionView(frame: .zero, collectionViewLayout: layout)
@@ -42,6 +42,22 @@ class FCViewController: UIViewController {
         return fcrmtcv
     }()
     
+    let fCRFoodCollectionView : FCRFoodCollectionView = {
+       let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        let fcrfcv = FCRFoodCollectionView(frame: .zero, collectionViewLayout: layout)
+        fcrfcv.translatesAutoresizingMaskIntoConstraints = false
+        fcrfcv.semanticContentAttribute = .forceRightToLeft
+        fcrfcv.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
+        fcrfcv.showsVerticalScrollIndicator = true
+        fcrfcv.dataSource = fcrfcv.self
+        fcrfcv.delegate = fcrfcv.self
+        fcrfcv.register(FCRFoodCollectionViewCell.self, forCellWithReuseIdentifier: "uncustomizableFood")
+        return fcrfcv
+        
+    }()
+    
+    
    
     
     override func viewDidLoad() {
@@ -55,13 +71,17 @@ class FCViewController: UIViewController {
         self.view.addSubview(fCRMenuTitleCollectionView)
         setupFCRMenuTitleCollectionView()
         
+        self.view.addSubview(fCRFoodCollectionView)
+        setupFCRFoodCollectionView()
+        
+        
         // Do any additional setup after loading the view.
     }
     
     
     
     func setupSelf()  {
-        self.view.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
+//        self.view.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
     }
     
     private func setupFCRestaurantCollectionView() {
@@ -81,7 +101,14 @@ class FCViewController: UIViewController {
             fCRMenuTitleCollectionView.heightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.1),
         ])
     }
-
+    private func setupFCRFoodCollectionView() {
+        NSLayoutConstraint.activate([
+            fCRFoodCollectionView.safeAreaLayoutGuide.topAnchor.constraint(equalTo: fCRMenuTitleCollectionView.safeAreaLayoutGuide.bottomAnchor),
+            fCRFoodCollectionView.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+            fCRFoodCollectionView.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+            fCRFoodCollectionView.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
     /*
     // MARK: - Navigation
 

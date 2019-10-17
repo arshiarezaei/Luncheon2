@@ -62,8 +62,8 @@ class FCRFoodCollectionViewCell: UICollectionViewCell {
         let fdpl = UILabel(frame: .zero)
         fdpl.translatesAutoresizingMaskIntoConstraints = false
         fdpl.textAlignment = .right
-        fdpl.semanticContentAttribute = .forceRightToLeft
-        fdpl.font = UIFont(name: "BYekan+", size: 8)
+        fdpl.semanticContentAttribute = .forceLeftToRight
+        fdpl.font = UIFont(name: "BYekan+", size: 15)
         fdpl.textColor = .grayTextColor
         return fdpl
         
@@ -96,24 +96,35 @@ class FCRFoodCollectionViewCell: UICollectionViewCell {
         self.addSubview(foodPriceLabel)
         setupFoodPriceLabel()
         
+        self.addSubview(foodPriceAfterDiscountLabel)
+        setupfoodPriceAfterDiscountLabel()
         
         
-        setupCell(foodName: "اسم غذا", foodDescription: "این غذا شامل توضیحات خاصی نمی باشد", foodPrice: 20000, foodPriceAfterDiscount: nil, foodRate: 1)
         
-}
+        
+        setupCell(foodName: "اسم غذا", foodDescription: "این غذا شامل توضیحات خاصی نمی باشد", foodPrice: 20000, foodPriceAfterDiscount: 18000, foodRate: 4.2)
+        
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     func setupCell(foodName:String , foodDescription:String,foodPrice:Int,foodPriceAfterDiscount:Int!,foodImage:UIImage=UIImage(named: "foodCell")!,foodRate:Double) {
+        let foodPriceInPersinaNumberFormate :String = Utilities.convertToPersianNumber(number: foodPrice) + "ت"
         self.foodNameLabel.text = foodName
-        self.foodPriceLabel.text = String(foodPrice) + "ت"
+        self.foodPriceLabel.text = foodPriceInPersinaNumberFormate
         self.foodDescriptionLabel.text = foodDescription
         self.foodImage.image = foodImage
         
         if let fpad = foodPriceAfterDiscount{
-        self.foodPriceAfterDiscountLabel.text = String(fpad)
+            let fpadInPersianNumberFormat:String = Utilities.convertToPersianNumber(number: fpad)
+            self.foodPriceAfterDiscountLabel.text = fpadInPersianNumberFormat + "ت"
+            self.foodPriceLabel.text?.removeLast()
+            let attributedString = NSMutableAttributedString(string: foodPriceInPersinaNumberFormate)
+            attributedString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSRange(location: 0, length: attributedString.length))
+            foodPriceLabel.font = UIFont(name: "BYekan+", size:11)
+            self.foodPriceLabel.attributedText = attributedString
         }
         foodRateView.setRateNumber(rate: foodRate)
         
@@ -144,7 +155,7 @@ class FCRFoodCollectionViewCell: UICollectionViewCell {
             foodNameLabel.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -8),
             foodNameLabel.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 8),
             foodNameLabel.safeAreaLayoutGuide.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor, multiplier: 0.1, constant: 10),
-        
+            
         ])
     }
     private func setupFoodDescriptionLabel()  {
@@ -162,6 +173,12 @@ class FCRFoodCollectionViewCell: UICollectionViewCell {
             foodPriceLabel.safeAreaLayoutGuide.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor, multiplier: 0.055, constant: 15)
         ])
     }
-    
+    func setupfoodPriceAfterDiscountLabel() {
+        NSLayoutConstraint.activate([
+            foodPriceAfterDiscountLabel.safeAreaLayoutGuide.topAnchor.constraint(equalTo: foodDescriptionLabel.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            foodPriceAfterDiscountLabel.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: foodPriceLabel.safeAreaLayoutGuide.trailingAnchor, constant: 4),
+            foodPriceAfterDiscountLabel.safeAreaLayoutGuide.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor,multiplier: 0.055, constant: 15),
+        ])
+    }
     
 }

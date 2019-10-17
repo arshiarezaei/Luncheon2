@@ -50,7 +50,8 @@ class RateView: UIView {
     
     
     func setRateNumber(rate:Double) {
-        rateNumnberLabel.text = String(rate)
+        let rateInPersinaNumber :String = Utilities.convertToPersianNumber(number: rate)
+        rateNumnberLabel.text = rateInPersinaNumber
     }
     
     

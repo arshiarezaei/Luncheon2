@@ -10,7 +10,7 @@ import Foundation
 
 
 class Utilities {
-    private static let numbers = ["0":"۰","1":"۱","2":"۲","3":"۳","4":"۴","5":"۵","6":"۶","7":"۷","8":"۸","9":"۹",".":"/"]
+    private static let numbers = ["0":"۰","1":"۱","2":"۲","3":"۳","4":"۴","5":"۵","6":"۶","7":"۷","8":"۸","9":"۹"]
     static func convertToPersianNumber(number:Double) -> String {
         var result:String = String(number)
         for (key,value) in Utilities.numbers  {

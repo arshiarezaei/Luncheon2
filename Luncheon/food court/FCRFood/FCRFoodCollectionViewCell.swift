@@ -173,7 +173,7 @@ class FCRFoodCollectionViewCell: UICollectionViewCell {
             foodPriceLabel.safeAreaLayoutGuide.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor, multiplier: 0.055, constant: 15)
         ])
     }
-    func setupfoodPriceAfterDiscountLabel() {
+    private func setupfoodPriceAfterDiscountLabel() {
         NSLayoutConstraint.activate([
             foodPriceAfterDiscountLabel.safeAreaLayoutGuide.topAnchor.constraint(equalTo: foodDescriptionLabel.safeAreaLayoutGuide.bottomAnchor, constant: 0),
             foodPriceAfterDiscountLabel.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: foodPriceLabel.safeAreaLayoutGuide.trailingAnchor, constant: 4),

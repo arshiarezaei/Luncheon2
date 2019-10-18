@@ -77,7 +77,33 @@ class FCRFoodCollectionViewCell: UICollectionViewCell {
         return pb
     }()
     
+    private let minusButton : UIButton = {
+        let mb = UIButton(frame: .zero)
+        mb.translatesAutoresizingMaskIntoConstraints = false
+        mb.setImage(UIImage(named: "minus"), for: .init())
+        return mb
+    }()
     
+    private lazy var plusButtonInitialLayoutSetup:[NSLayoutConstraint] = [
+        plusBuuton.safeAreaLayoutGuide.centerYAnchor.constraint(equalTo: foodPriceLabel.safeAreaLayoutGuide.centerYAnchor, constant: 0),
+        plusBuuton.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant:-8),
+        plusBuuton.safeAreaLayoutGuide.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.11, constant: 0),
+        plusBuuton.safeAreaLayoutGuide.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor, multiplier: 0.07, constant: 0),
+    ]
+    private lazy var plusButtonLayoutAfterbeingTapped:[NSLayoutConstraint] = [
+        plusBuuton.safeAreaLayoutGuide.centerYAnchor.constraint(equalTo: foodPriceLabel.safeAreaLayoutGuide.centerYAnchor, constant: 0),
+        plusBuuton.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant:-40),
+        plusBuuton.safeAreaLayoutGuide.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.11, constant: 0),
+        plusBuuton.safeAreaLayoutGuide.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor, multiplier: 0.07, constant: 0),
+    ]
+    
+    private lazy var minusButtonInitialLayoutSetup:[NSLayoutConstraint] = [
+        minusButton.safeAreaLayoutGuide.centerYAnchor.constraint(equalTo: foodPriceLabel.safeAreaLayoutGuide.centerYAnchor, constant: 0),
+        minusButton.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant:-8),
+        minusButton.safeAreaLayoutGuide.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.11, constant: 0),
+        minusButton.safeAreaLayoutGuide.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor, multiplier: 0.07, constant: 0),
+        
+    ]
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -193,13 +219,21 @@ class FCRFoodCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupPlusButton() {
-        NSLayoutConstraint.activate([
-            plusBuuton.safeAreaLayoutGuide.centerYAnchor.constraint(equalTo: foodPriceLabel.safeAreaLayoutGuide.centerYAnchor, constant: 0),
-            plusBuuton.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant:-8),
-            plusBuuton.safeAreaLayoutGuide.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.11, constant: 0),
-            plusBuuton.safeAreaLayoutGuide.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor, multiplier: 0.07, constant: 0),
-        ])
+        plusBuuton.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
+        NSLayoutConstraint.activate(plusButtonInitialLayoutSetup)
         
+    }
+    
+    private func setupMinusButton()  {
+        assertionFailure("not implemented")
+        
+    }
+    @objc private func plusButtonTapped() {
+        debugPrint("plusButton tapped")
+        NSLayoutConstraint.deactivate(plusButtonInitialLayoutSetup)
+        NSLayoutConstraint.activate(plusButtonLayoutAfterbeingTapped)
+        self.addSubview(minusButton)
+        NSLayoutConstraint.activate(minusButtonInitialLayoutSetup)
     }
     
 }

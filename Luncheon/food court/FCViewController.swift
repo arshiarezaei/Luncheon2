@@ -50,6 +50,7 @@ class FCViewController: UIViewController {
         fcrfcv.semanticContentAttribute = .forceRightToLeft
         fcrfcv.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
         fcrfcv.showsVerticalScrollIndicator = true
+        fcrfcv.bounces = false
         fcrfcv.dataSource = fcrfcv.self
         fcrfcv.delegate = fcrfcv.self
         fcrfcv.register(FCRFoodCollectionViewCell.self, forCellWithReuseIdentifier: "uncustomizableFood")

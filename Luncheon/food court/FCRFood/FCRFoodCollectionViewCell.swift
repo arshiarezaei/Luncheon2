@@ -102,24 +102,24 @@ class FCRFoodCollectionViewCell: UICollectionViewCell {
         plusBuuton.safeAreaLayoutGuide.centerYAnchor.constraint(equalTo: foodPriceLabel.safeAreaLayoutGuide.centerYAnchor, constant: 0),
         plusBuuton.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant:-8),
         plusBuuton.safeAreaLayoutGuide.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.11, constant: 0),
-        plusBuuton.safeAreaLayoutGuide.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor, multiplier: 0.07, constant: 0),
+        plusBuuton.safeAreaLayoutGuide.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor, multiplier: 0.09, constant: 0),
     ]
     private lazy var plusButtonLayoutAfterbeingTapped:[NSLayoutConstraint] = [
         plusBuuton.safeAreaLayoutGuide.centerYAnchor.constraint(equalTo: foodPriceLabel.safeAreaLayoutGuide.centerYAnchor, constant: 0),
         plusBuuton.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: orderedCountLabel.safeAreaLayoutGuide.leadingAnchor, constant:0),
         plusBuuton.safeAreaLayoutGuide.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.11, constant: 0),
-        plusBuuton.safeAreaLayoutGuide.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor, multiplier: 0.07, constant: 0),
+        plusBuuton.safeAreaLayoutGuide.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor, multiplier: 0.09, constant: 0),
     ]
     
     private lazy var minusButtonInitialLayoutSetup:[NSLayoutConstraint] = [
         minusButton.safeAreaLayoutGuide.centerYAnchor.constraint(equalTo: foodPriceLabel.safeAreaLayoutGuide.centerYAnchor, constant: 0),
         minusButton.safeAreaLayoutGuide.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.11, constant: 0),
-        minusButton.safeAreaLayoutGuide.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor, multiplier: 0.07, constant: 0),
+        minusButton.safeAreaLayoutGuide.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor, multiplier: 0.09, constant: 0),
         minusButton.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -4)
         
     ]
     private lazy var orderedCountLabelLayout:[NSLayoutConstraint] = [
-        orderedCountLabel.safeAreaLayoutGuide.centerYAnchor.constraint(equalTo: plusBuuton.safeAreaLayoutGuide.centerYAnchor),
+        orderedCountLabel.safeAreaLayoutGuide.centerYAnchor.constraint(equalTo: plusBuuton.safeAreaLayoutGuide.centerYAnchor,constant: -3),
         orderedCountLabel.safeAreaLayoutGuide.heightAnchor.constraint(equalToConstant: 17),
         orderedCountLabel.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: minusButton.safeAreaLayoutGuide.leadingAnchor,constant: 0),
         orderedCountLabel.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: plusBuuton.safeAreaLayoutGuide.trailingAnchor,constant: 0),

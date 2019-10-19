@@ -91,11 +91,12 @@ class FCRFoodCollectionViewCell: UICollectionViewCell {
         odl.textAlignment = .center
         odl.semanticContentAttribute = .forceLeftToRight
         odl.textColor = .black
-        odl.sizeToFit()
+        odl.adjustsFontSizeToFitWidth = true
+        odl.numberOfLines = 1
         
         return odl
     }()
-    private lazy var orderedCout:Int = 0
+    private  var orderedCount :Int = 0
     
     private lazy var plusButtonInitialLayoutSetup:[NSLayoutConstraint] = [
         plusBuuton.safeAreaLayoutGuide.centerYAnchor.constraint(equalTo: foodPriceLabel.safeAreaLayoutGuide.centerYAnchor, constant: 0),
@@ -105,18 +106,24 @@ class FCRFoodCollectionViewCell: UICollectionViewCell {
     ]
     private lazy var plusButtonLayoutAfterbeingTapped:[NSLayoutConstraint] = [
         plusBuuton.safeAreaLayoutGuide.centerYAnchor.constraint(equalTo: foodPriceLabel.safeAreaLayoutGuide.centerYAnchor, constant: 0),
-        plusBuuton.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant:-40),
+        plusBuuton.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: orderedCountLabel.safeAreaLayoutGuide.leadingAnchor, constant:0),
         plusBuuton.safeAreaLayoutGuide.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.11, constant: 0),
         plusBuuton.safeAreaLayoutGuide.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor, multiplier: 0.07, constant: 0),
     ]
     
     private lazy var minusButtonInitialLayoutSetup:[NSLayoutConstraint] = [
         minusButton.safeAreaLayoutGuide.centerYAnchor.constraint(equalTo: foodPriceLabel.safeAreaLayoutGuide.centerYAnchor, constant: 0),
-        minusButton.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: orderedCountLabel.safeAreaLayoutGuide.trailingAnchor, constant:4),
         minusButton.safeAreaLayoutGuide.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.11, constant: 0),
         minusButton.safeAreaLayoutGuide.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor, multiplier: 0.07, constant: 0),
         minusButton.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -4)
         
+    ]
+    private lazy var orderedCountLabelLayout:[NSLayoutConstraint] = [
+        orderedCountLabel.safeAreaLayoutGuide.centerYAnchor.constraint(equalTo: plusBuuton.safeAreaLayoutGuide.centerYAnchor),
+        orderedCountLabel.safeAreaLayoutGuide.heightAnchor.constraint(equalToConstant: 17),
+        orderedCountLabel.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: minusButton.safeAreaLayoutGuide.leadingAnchor,constant: 0),
+        orderedCountLabel.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: plusBuuton.safeAreaLayoutGuide.trailingAnchor,constant: 0),
+        orderedCountLabel.safeAreaLayoutGuide.widthAnchor.constraint(greaterThanOrEqualToConstant: 20)
     ]
     
     override init(frame: CGRect) {
@@ -240,30 +247,39 @@ class FCRFoodCollectionViewCell: UICollectionViewCell {
     
     private func setupMinusButton()  {
         minusButton.addTarget(self, action: #selector(minusButtonTapped), for: .touchUpInside)
-                
+        
     }
     @objc private func plusButtonTapped() {
         debugPrint("plusButton tapped")
+        orderedCount += 1
+        if orderedCount == 1{
         NSLayoutConstraint.deactivate(plusButtonInitialLayoutSetup)
-        NSLayoutConstraint.activate(plusButtonLayoutAfterbeingTapped)
-        orderedCout += 1
-        orderedCountLabel.text = Utilities.convertToPersianNumber(number: orderedCout)
         self.addSubview(orderedCountLabel)
-        NSLayoutConstraint.activate([
-            orderedCountLabel.safeAreaLayoutGuide.centerYAnchor.constraint(equalTo: plusBuuton.safeAreaLayoutGuide.centerYAnchor),
-            orderedCountLabel.safeAreaLayoutGuide.heightAnchor.constraint(equalToConstant: 17),
-            orderedCountLabel.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: plusBuuton.safeAreaLayoutGuide.trailingAnchor,constant: 4)
-        ])
         self.addSubview(minusButton)
         setupMinusButton()
         NSLayoutConstraint.activate(minusButtonInitialLayoutSetup)
+        NSLayoutConstraint.activate(orderedCountLabelLayout)
+            NSLayoutConstraint.activate(plusButtonLayoutAfterbeingTapped)
+        }
+        orderedCountLabel.text = Utilities.convertToPersianNumber(number: orderedCount)
+        
         
     }
     
     @objc private func minusButtonTapped(){
         debugPrint("minuseButtonTapped")
-        orderedCout -= 1
-        orderedCountLabel.text = Utilities.convertToPersianNumber(number: orderedCout)
+        orderedCount -= 1
+       
+        if orderedCount>0{
+             orderedCountLabel.text = Utilities.convertToPersianNumber(number: orderedCount)
+        }
+        else if orderedCount==0{
+            minusButton.removeFromSuperview()
+            orderedCountLabel.removeFromSuperview()
+            NSLayoutConstraint.deactivate(plusButtonLayoutAfterbeingTapped)
+            NSLayoutConstraint.activate(plusButtonInitialLayoutSetup)
+    
+        }
         
     }
     

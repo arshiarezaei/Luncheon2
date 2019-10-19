@@ -98,6 +98,14 @@ class FCRFoodCollectionViewCell: UICollectionViewCell {
     }()
     private  var orderedCount :Int = 0
     
+    private lazy var foodPriceLabelInitialLayout:[NSLayoutConstraint] = [
+        foodPriceLabel.safeAreaLayoutGuide.topAnchor.constraint(equalTo: foodDescriptionLabel.safeAreaLayoutGuide.bottomAnchor,constant: 0),
+        foodPriceLabel.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 8),
+        foodPriceLabel.safeAreaLayoutGuide.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor, multiplier: 0.055, constant: 15)
+    ]
+    
+    
+    
     private lazy var plusButtonInitialLayoutSetup:[NSLayoutConstraint] = [
         plusBuuton.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -10),
         plusBuuton.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant:-8),
@@ -157,7 +165,8 @@ class FCRFoodCollectionViewCell: UICollectionViewCell {
         setupFoodDescriptionLabel()
         
         self.addSubview(foodPriceLabel)
-        setupFoodPriceLabel()
+        NSLayoutConstraint.activate(foodPriceLabelInitialLayout)
+//        setupFoodPriceLabel()
         
         self.addSubview(foodPriceAfterDiscountLabel)
         setupfoodPriceAfterDiscountLabel()
@@ -233,13 +242,13 @@ class FCRFoodCollectionViewCell: UICollectionViewCell {
             foodDescriptionLabel.safeAreaLayoutGuide.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor, multiplier: 0.06, constant: 12),
         ])
     }
-    private func setupFoodPriceLabel() {
-        NSLayoutConstraint.activate([
-            foodPriceLabel.safeAreaLayoutGuide.topAnchor.constraint(equalTo: foodDescriptionLabel.safeAreaLayoutGuide.bottomAnchor,constant: 0),
-            foodPriceLabel.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-            foodPriceLabel.safeAreaLayoutGuide.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor, multiplier: 0.055, constant: 15)
-        ])
-    }
+//    private func setupFoodPriceLabel() {
+//        NSLayoutConstraint.activate([
+//            foodPriceLabel.safeAreaLayoutGuide.topAnchor.constraint(equalTo: foodDescriptionLabel.safeAreaLayoutGuide.bottomAnchor,constant: 0),
+//            foodPriceLabel.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 8),
+//            foodPriceLabel.safeAreaLayoutGuide.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor, multiplier: 0.055, constant: 15)
+//        ])
+//    }
     private func setupfoodPriceAfterDiscountLabel() {
         NSLayoutConstraint.activate(foodPriceAfterDiscountInitialLayout)
     }
@@ -290,11 +299,7 @@ class FCRFoodCollectionViewCell: UICollectionViewCell {
             NSLayoutConstraint.activate(plusButtonInitialLayoutSetup)
             NSLayoutConstraint.deactivate(foodPriceAfterDiscountLabelLayoutAfterTappingPlusButton)
             self.addSubview(foodPriceLabel)
-            NSLayoutConstraint.activate([
-                foodPriceLabel.safeAreaLayoutGuide.topAnchor.constraint(equalTo: foodDescriptionLabel.safeAreaLayoutGuide.bottomAnchor,constant: 0),
-                foodPriceLabel.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-                foodPriceLabel.safeAreaLayoutGuide.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor, multiplier: 0.055, constant: 15)
-            ])
+            NSLayoutConstraint.activate(foodPriceLabelInitialLayout)
             NSLayoutConstraint.activate(foodPriceAfterDiscountInitialLayout)
             
             

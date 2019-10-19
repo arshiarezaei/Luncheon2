@@ -84,6 +84,19 @@ class FCRFoodCollectionViewCell: UICollectionViewCell {
         return mb
     }()
     
+    private let orderedCountLabel:UILabel = {
+        let odl = UILabel(frame: .zero)
+        odl.translatesAutoresizingMaskIntoConstraints = false
+        odl.font = UIFont(name: "BYekan+", size: 15)
+        odl.textAlignment = .center
+        odl.semanticContentAttribute = .forceLeftToRight
+        odl.textColor = .black
+        odl.sizeToFit()
+        
+        return odl
+    }()
+    private lazy var orderedCout:Int = 0
+    
     private lazy var plusButtonInitialLayoutSetup:[NSLayoutConstraint] = [
         plusBuuton.safeAreaLayoutGuide.centerYAnchor.constraint(equalTo: foodPriceLabel.safeAreaLayoutGuide.centerYAnchor, constant: 0),
         plusBuuton.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant:-8),
@@ -99,9 +112,10 @@ class FCRFoodCollectionViewCell: UICollectionViewCell {
     
     private lazy var minusButtonInitialLayoutSetup:[NSLayoutConstraint] = [
         minusButton.safeAreaLayoutGuide.centerYAnchor.constraint(equalTo: foodPriceLabel.safeAreaLayoutGuide.centerYAnchor, constant: 0),
-        minusButton.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant:-8),
+        minusButton.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: orderedCountLabel.safeAreaLayoutGuide.trailingAnchor, constant:4),
         minusButton.safeAreaLayoutGuide.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.11, constant: 0),
         minusButton.safeAreaLayoutGuide.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor, multiplier: 0.07, constant: 0),
+        minusButton.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -4)
         
     ]
     
@@ -225,15 +239,32 @@ class FCRFoodCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupMinusButton()  {
-        assertionFailure("not implemented")
-        
+        minusButton.addTarget(self, action: #selector(minusButtonTapped), for: .touchUpInside)
+                
     }
     @objc private func plusButtonTapped() {
         debugPrint("plusButton tapped")
         NSLayoutConstraint.deactivate(plusButtonInitialLayoutSetup)
         NSLayoutConstraint.activate(plusButtonLayoutAfterbeingTapped)
+        orderedCout += 1
+        orderedCountLabel.text = Utilities.convertToPersianNumber(number: orderedCout)
+        self.addSubview(orderedCountLabel)
+        NSLayoutConstraint.activate([
+            orderedCountLabel.safeAreaLayoutGuide.centerYAnchor.constraint(equalTo: plusBuuton.safeAreaLayoutGuide.centerYAnchor),
+            orderedCountLabel.safeAreaLayoutGuide.heightAnchor.constraint(equalToConstant: 17),
+            orderedCountLabel.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: plusBuuton.safeAreaLayoutGuide.trailingAnchor,constant: 4)
+        ])
         self.addSubview(minusButton)
+        setupMinusButton()
         NSLayoutConstraint.activate(minusButtonInitialLayoutSetup)
+        
+    }
+    
+    @objc private func minusButtonTapped(){
+        debugPrint("minuseButtonTapped")
+        orderedCout -= 1
+        orderedCountLabel.text = Utilities.convertToPersianNumber(number: orderedCout)
+        
     }
     
 }

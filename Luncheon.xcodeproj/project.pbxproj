@@ -27,6 +27,7 @@
 		594EFFB5235C9E72005D6D5C /* FoodCourt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594EFFB4235C9E72005D6D5C /* FoodCourt.swift */; };
 		594EFFB9235CA56F005D6D5C /* FCRestaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594EFFB8235CA56F005D6D5C /* FCRestaurant.swift */; };
 		594EFFBC235CAB4F005D6D5C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 594EFFBB235CAB4F005D6D5C /* Alamofire */; };
+		594EFFBF235CABD7005D6D5C /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 594EFFBE235CABD7005D6D5C /* SwiftyJSON */; };
 		59656C2C235749EF00EE9096 /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59656C2B235749EF00EE9096 /* RateView.swift */; };
 		596EDFB32354E3F6006D5E9D /* extention FCRestaurantsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596EDFB22354E3F6006D5E9D /* extention FCRestaurantsCollectionViewDataSource.swift */; };
 		596EDFB52354E825006D5E9D /* FCRestaurantsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596EDFB42354E825006D5E9D /* FCRestaurantsCollectionViewCell.swift */; };
@@ -109,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				594EFFBF235CABD7005D6D5C /* SwiftyJSON in Frameworks */,
 				594EFFBC235CAB4F005D6D5C /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,6 +316,7 @@
 			name = Luncheon;
 			packageProductDependencies = (
 				594EFFBB235CAB4F005D6D5C /* Alamofire */,
+				594EFFBE235CABD7005D6D5C /* SwiftyJSON */,
 			);
 			productName = Luncheon;
 			productReference = 5928E4B92354C66300821BE6 /* Luncheon.app */;
@@ -389,6 +392,7 @@
 			mainGroup = 5928E4B02354C66300821BE6;
 			packageReferences = (
 				594EFFBA235CAB4F005D6D5C /* XCRemoteSwiftPackageReference "Alamofire" */,
+				594EFFBD235CABD7005D6D5C /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = 5928E4BA2354C66300821BE6 /* Products */;
 			projectDirPath = "";
@@ -802,6 +806,14 @@
 				minimumVersion = 4.9.0;
 			};
 		};
+		594EFFBD235CABD7005D6D5C /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -809,6 +821,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 594EFFBA235CAB4F005D6D5C /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		594EFFBE235CABD7005D6D5C /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 594EFFBD235CABD7005D6D5C /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
 		};
 /* End XCSwiftPackageProductDependency section */
 

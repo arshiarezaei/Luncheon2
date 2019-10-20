@@ -15,7 +15,6 @@ class NavigationViewController: UINavigationController {
         navigationBar.tintColor = .luncheonLogoTextColor
         navigationBar.topItem?.titleView =  UIImageView(image: UIImage(named: "logo"))
         navigationBar.topItem?.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "food tray"), style: .plain, target: nil, action: nil)
-
         // Do any additional setup after loading the view.
     }
     

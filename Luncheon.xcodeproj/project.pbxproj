@@ -155,6 +155,7 @@
 		5928E4BB2354C66300821BE6 /* Luncheon */ = {
 			isa = PBXGroup;
 			children = (
+				594EFFC0235CF434005D6D5C /* View Controllers */,
 				594EFFB7235CA558005D6D5C /* Model */,
 				593990902357B4CB00128669 /* Utilities */,
 				59656C2A235749BA00EE9096 /* reusable views */,
@@ -169,8 +170,6 @@
 				5928E4CA2354C66400821BE6 /* LaunchScreen.storyboard */,
 				5928E4CD2354C66400821BE6 /* Info.plist */,
 				5928E4C52354C66300821BE6 /* Luncheon.xcdatamodeld */,
-				5928E4FE2354D2B200821BE6 /* MainTabBarViewController.swift */,
-				5928E5032354D90600821BE6 /* NavigationViewController.swift */,
 			);
 			path = Luncheon;
 			sourceTree = "<group>";
@@ -252,6 +251,15 @@
 				594EFFB8235CA56F005D6D5C /* FCRestaurant.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		594EFFC0235CF434005D6D5C /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5928E4FE2354D2B200821BE6 /* MainTabBarViewController.swift */,
+				5928E5032354D90600821BE6 /* NavigationViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		59656C2A235749BA00EE9096 /* reusable views */ = {

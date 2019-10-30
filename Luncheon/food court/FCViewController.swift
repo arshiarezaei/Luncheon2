@@ -23,7 +23,7 @@ class FCViewController: UIViewController {
         fcrcv.showsHorizontalScrollIndicator = false
         fcrcv.showsHorizontalScrollIndicator = false
         return fcrcv
-
+        
     }()
     
     
@@ -43,7 +43,7 @@ class FCViewController: UIViewController {
     }()
     
     let fCRFoodCollectionView : FCRFoodCollectionView = {
-       let layout = UICollectionViewFlowLayout()
+        let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let fcrfcv = FCRFoodCollectionView(frame: .zero, collectionViewLayout: layout)
         fcrfcv.translatesAutoresizingMaskIntoConstraints = false
@@ -59,7 +59,7 @@ class FCViewController: UIViewController {
     }()
     
     
-   
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,16 +74,31 @@ class FCViewController: UIViewController {
         
         self.view.addSubview(fCRFoodCollectionView)
         setupFCRFoodCollectionView()
+        let index:IndexPath = IndexPath(row: 0, section: 0)
+                
+        FCRestaurnatManager.getRestaurantsOfAFC(fCid: "test"){
+            self.fCRestaurantCollectionView.reloadData()
+            self.fCRestaurantCollectionView.selectItem(at: index, animated: true, scrollPosition: .init())
+            self.fCRMenuTitleCollectionView.reloadData()
+            self.fCRMenuTitleCollectionView.index = 1
+            self.fCRMenuTitleCollectionView.reloadData()
+           
+        }
+     //   Networking.getMenusOfAFCRestaurant(fCRestaurantid: "92b78e08-d2e2-476b-881d-2cee415eeb8d")
         
-        
-        // Do any additional setup after loading the view.
     }
     
     
     
     func setupSelf()  {
-//        self.view.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
+        //        self.view.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
+        print("farnaz")
+        
     }
+    func reloadFCRestaurantCollectionView() {
+        fCRFoodCollectionView.reloadData()
+    }
+    
     
     private func setupFCRestaurantCollectionView() {
         NSLayoutConstraint.activate([
@@ -111,13 +126,13 @@ class FCViewController: UIViewController {
         ])
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

@@ -9,22 +9,24 @@
 import Foundation
 struct Menu {
     
-    private let title :String
-    private let persianTitle:String
+    private let id :String
+    private let name :String
+    private let persianName:String
     
     var getMenuTitle: String {
         get {
-            return title
+            return name
         }
     }
     var getMenuPersianName: String {
         get {
-            return persianTitle
+            return persianName
         }
       
     }
-    init(title:String,persianTitle:String) {
-        self.title = title
-        self.persianTitle = persianTitle
+    init(id:String,name:String,persianName:String) {
+        self.name = name
+        self.persianName = persianName
+        self.id = id
     }
 }

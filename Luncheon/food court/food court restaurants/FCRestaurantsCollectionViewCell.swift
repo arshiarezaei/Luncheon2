@@ -24,11 +24,11 @@ class FCRestaurantsCollectionViewCell: UICollectionViewCell {
         rli.translatesAutoresizingMaskIntoConstraints = false
         rli.image? = (rli.image?.withRenderingMode(.alwaysTemplate))!
         rli.tintColor = .luncheonLogoTextColor
-        rli.contentMode = .scaleAspectFit
         rli.layer.borderWidth = 2
         rli.layer.borderColor = UIColor.black.cgColor
         rli.layer.cornerRadius = rli.frame.width/2
         rli.layer.masksToBounds = true
+        rli.contentMode = .scaleAspectFit
         
         
         
@@ -38,9 +38,10 @@ class FCRestaurantsCollectionViewCell: UICollectionViewCell {
     private let restaurantNameLabel:UILabel = {
         let rnl = UILabel(frame: .zero)
         rnl.translatesAutoresizingMaskIntoConstraints = false
-        rnl.textAlignment = .right
+        rnl.textAlignment = .center
         rnl.semanticContentAttribute = .forceRightToLeft
         rnl.font = UIFont(name: "BYekan+", size: 15)
+        
         return rnl
     }()
     
@@ -96,6 +97,8 @@ class FCRestaurantsCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             restaurantNameLabel.topAnchor.constraint(equalTo: restaurantLogoImage.bottomAnchor, constant: 8),
             restaurantNameLabel.centerXAnchor.constraint(equalTo: restaurantLogoImage.centerXAnchor),
+            restaurantNameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            restaurantNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor)
         ])
     }
   

@@ -11,12 +11,14 @@ import UIKit
 
 extension FCRestaurantsCollectionView:UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return FCRestaurnatManager.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "restaurants", for: indexPath) as? FCRestaurantsCollectionViewCell
     //    cell?.backgroundColor = .red
+        let res = FCRestaurnatManager.getRest(index: indexPath.item)
+        cell?.setupCell(restaurantName: res!.getPersianName,restaurantLogo: res!.fCRestaurantLogo)
         return cell!
     }
     

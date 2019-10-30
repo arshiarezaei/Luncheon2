@@ -74,6 +74,7 @@ class FCRFoodCollectionViewCell: UICollectionViewCell {
         let pb = UIButton(frame: .zero)
         pb.translatesAutoresizingMaskIntoConstraints = false
         pb.setImage(UIImage(named: "plus"), for: .init())
+        pb.imageView?.contentMode = .scaleAspectFill
         return pb
     }()
     

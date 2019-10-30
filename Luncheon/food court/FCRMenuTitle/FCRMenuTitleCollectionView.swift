@@ -9,6 +9,8 @@
 import UIKit
 
 class FCRMenuTitleCollectionView: UICollectionView {
+    
+    lazy var index:Int = -1
 
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {

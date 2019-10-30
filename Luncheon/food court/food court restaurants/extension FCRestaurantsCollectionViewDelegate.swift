@@ -10,5 +10,7 @@ import Foundation
 import UIKit
 
 extension FCRestaurantsCollectionView:UICollectionViewDelegate{
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
 }

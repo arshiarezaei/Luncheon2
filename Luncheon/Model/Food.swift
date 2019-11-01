@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Food {
+struct Food {
 
     
     private let id :String

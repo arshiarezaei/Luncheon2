@@ -12,16 +12,15 @@ import UIKit
 extension FCRMenuTitleCollectionView: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
       //  assertionFailure("not Implemented")
-        
-     
-            return index != -1 ? index : 0
+            return index
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //assertionFailure("not Implemented")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "menuTitle", for: indexPath) as? FCRMenuTitleCollectionViewCell
-        if FCRestaurnatManager.count != 0{
-            let menu = FCRestaurnatManager.getRest(index: 1)[indexPath.item].getMenuPersianName
+        if FCRestaurnatManager.count != 0 {
+            //print(index)
+            let menu = FCRestaurnatManager.getRest(index: indexOfSelectedFCRestaurant)[indexPath.item].getMenuPersianName
                    cell?.setTitle(menuTitle: menu)
                    return cell!
                }

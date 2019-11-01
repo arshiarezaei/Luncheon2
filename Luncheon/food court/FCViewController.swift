@@ -13,12 +13,17 @@ class FCViewController: UIViewController {
     private let fCRestaurantCollectionView:UICollectionView! = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 56, height: 90)
+//        layout.estimatedItemSize =
+//        layout.minimumLineSpacing = 10
+//        layout.minimumInteritemSpacing = 40
+        
         let fcrcv = FCRestaurantsCollectionView(frame: .zero, collectionViewLayout: layout)
         fcrcv.translatesAutoresizingMaskIntoConstraints = false
         fcrcv.semanticContentAttribute = .forceRightToLeft
         fcrcv.backgroundColor = .white
         fcrcv.dataSource = fcrcv.self
-        fcrcv.delegate = fcrcv.self
+//        fcrcv.delegate = fcrcv.self
         fcrcv.register(FCRestaurantsCollectionViewCell.self, forCellWithReuseIdentifier: "restaurants")
         fcrcv.showsHorizontalScrollIndicator = false
         fcrcv.showsHorizontalScrollIndicator = false
@@ -64,8 +69,6 @@ class FCViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupSelf()
-        
         self.view.addSubview(fCRestaurantCollectionView)
         setupFCRestaurantCollectionView()
         
@@ -80,9 +83,16 @@ class FCViewController: UIViewController {
             self.fCRestaurantCollectionView.reloadData()
             self.fCRestaurantCollectionView.selectItem(at: index, animated: true, scrollPosition: .init())
             self.fCRMenuTitleCollectionView.reloadData()
-            self.fCRMenuTitleCollectionView.index = 1
-            self.fCRMenuTitleCollectionView.reloadData()
-           
+//            self.fCRMenuTitleCollectionView.index = 1
+//            self.fCRMenuTitleCollectionView.reloadData()
+//            self.fCRMenuTitleCollectionView.selectItem(at: index, animated: true, scrollPosition: UICollectionView.ScrollPosition.init())
+            if FCRestaurnatManager.count==1 {
+                self.fCRMenuTitleCollectionView.index  = FCRestaurnatManager.getRest(index: 0)!.getCountOfMenus
+                self.fCRMenuTitleCollectionView.reloadData()
+                self.fCRMenuTitleCollectionView.selectItem(at: index, animated: true, scrollPosition: UICollectionView.ScrollPosition.init())
+                
+            }
+            
         }
      //   Networking.getMenusOfAFCRestaurant(fCRestaurantid: "92b78e08-d2e2-476b-881d-2cee415eeb8d")
         
@@ -90,9 +100,10 @@ class FCViewController: UIViewController {
     
     
     
-    func setupSelf()  {
+     static func setupSelf()  {
         //        self.view.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
         print("farnaz")
+        
         
     }
     func reloadFCRestaurantCollectionView() {
@@ -101,6 +112,7 @@ class FCViewController: UIViewController {
     
     
     private func setupFCRestaurantCollectionView() {
+       fCRestaurantCollectionView.delegate = self
         NSLayoutConstraint.activate([
             fCRestaurantCollectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             fCRestaurantCollectionView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
@@ -135,4 +147,22 @@ class FCViewController: UIViewController {
      }
      */
     
+}
+extension FCViewController:UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView.self {
+        case fCRestaurantCollectionView:
+            fCRestaurantCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: UICollectionView.ScrollPosition.init())
+            fCRMenuTitleCollectionView.index = FCRestaurnatManager.getRest(index: indexPath.item)!.getCountOfMenus
+            fCRMenuTitleCollectionView.indexOfSelectedFCRestaurant = indexPath.item
+            let preseledtedIndex:IndexPath = IndexPath(row: 0, section: 0)
+            fCRMenuTitleCollectionView.reloadData()
+            fCRMenuTitleCollectionView.selectItem(at: preseledtedIndex, animated: true, scrollPosition: UICollectionView.ScrollPosition.init())
+            
+
+
+        default:
+            debugPrint("default")
+        }
+    }
 }

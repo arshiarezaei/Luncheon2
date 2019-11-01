@@ -10,7 +10,28 @@ import UIKit
 
 class FCRMenuTitleCollectionView: UICollectionView {
     
-    lazy var index:Int = -1
+     private lazy var selectedMenuTitle:Int = 0
+     private lazy var selectedFCRestaurant = 0
+    
+    
+    
+    var indexOfSelectedFCRestaurant: Int {
+        get {
+            return selectedFCRestaurant
+        }
+        set {
+            selectedFCRestaurant = newValue
+        }
+    }
+    
+    var index: Int {
+        get {
+            return selectedMenuTitle
+        }
+        set {
+            selectedMenuTitle = newValue
+        }
+    }
 
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
@@ -27,5 +48,6 @@ class FCRMenuTitleCollectionView: UICollectionView {
         // Drawing code
     }
     */
+    
 
 }
